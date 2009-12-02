@@ -5,16 +5,8 @@ import base64
 import cPickle as pickle
 import logging
 import numpy
-import sys
 
-def read_input(file, separator="\t"):
-    for line in file:
-        yield line.rstrip().split(separator)
-
-def run_mapper(map, separator="\t"):
-    data = read_input(sys.stdin,separator)
-    for (key,value) in data:
-        map(key,value)
+import mrtools
 
 def map(key, value):
     key = [float(i) for i in key.split(",")]
@@ -27,4 +19,4 @@ def map(key, value):
     print "outputkey\t%s" % ( value )
 
 if __name__ == "__main__":
-    run_mapper(map)
+    mrtools.run_mapper(map)
