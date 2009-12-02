@@ -1,9 +1,5 @@
 import cPickle as pickle
 
-# http://www.oberhumer.com/opensource/lzo/download/LZO-v1/python-lzo-1.08.tar.gz
-# http://www.oberhumer.com/opensource/lzo/download/lzo-2.03.tar.gz
-# need to change lzo to lzo2 in setup.py and add lzo/ prefix to one include
-
 def numerifyFeature(feature):
     if feature == "?":
         feature = 0.0
