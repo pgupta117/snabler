@@ -6,7 +6,20 @@ import cPickle as pickle
 import logging
 import numpy
 
-import mrtools
+#import mrtools
+
+from itertools import groupby
+from operator import itemgetter
+import sys
+
+def read_input(file, separator="\t"):
+    for line in file:
+        yield line.rstrip().split(separator)
+
+def run_mapper(map, separator="\t"):
+    data = read_input(sys.stdin,separator)
+    for (key,value) in data:
+        map(key,value)
 
 def map(key, value):
     trainingclasses = [float(i) for i in key.split(",")]
@@ -30,4 +43,4 @@ def map(key, value):
     print "outputkey\t%s" % ( value )
 
 if __name__ == "__main__":
-    mrtools.run_mapper(map)
+    run_mapper(map)
