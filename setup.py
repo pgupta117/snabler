@@ -8,4 +8,5 @@ setup(name='Snabler',
       author='Amund Tveit',
       author_email='amund@atbrox.com',
       url='http://code.google.com/p/snabler/',
+      packages=['psvm'],
      )
